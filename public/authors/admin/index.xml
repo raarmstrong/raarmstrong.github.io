@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R A Armstrong</title>
+    <link>https://raarmstrong.github.io/authors/admin/</link>
+      <atom:link href="https://raarmstrong.github.io/authors/admin/index.xml" rel="self" type="application/rss+xml" />
+    <description>R A Armstrong</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019 Richard Armstrong</copyright>
+    <image>
+      <url>https://raarmstrong.github.io/img/avatar.jpg</url>
+      <title>R A Armstrong</title>
+      <link>https://raarmstrong.github.io/authors/admin/</link>
+    </image>
+    
+  </channel>
+</rss>

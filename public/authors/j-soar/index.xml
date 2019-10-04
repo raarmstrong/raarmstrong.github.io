@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>J Soar | R A Armstrong</title>
+    <link>https://raarmstrong.github.io/authors/j-soar/</link>
+      <atom:link href="https://raarmstrong.github.io/authors/j-soar/index.xml" rel="self" type="application/rss+xml" />
+    <description>J Soar</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019 Richard Armstrong</copyright><lastBuildDate>Fri, 10 May 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://raarmstrong.github.io/img/avatar.jpg</url>
+      <title>J Soar</title>
+      <link>https://raarmstrong.github.io/authors/j-soar/</link>
+    </image>
+    
+    <item>
+      <title>The incidence of cardiac arrest in the intensive care unit: A systematic review and meta-analysis</title>
+      <link>https://raarmstrong.github.io/publication/incidence-of-cardiac-arrest-in-icu/</link>
+      <pubDate>Fri, 10 May 2019 00:00:00 +0000</pubDate>
+      <guid>https://raarmstrong.github.io/publication/incidence-of-cardiac-arrest-in-icu/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

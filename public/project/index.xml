@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects | R A Armstrong</title>
+    <link>https://raarmstrong.github.io/project/</link>
+      <atom:link href="https://raarmstrong.github.io/project/index.xml" rel="self" type="application/rss+xml" />
+    <description>Projects</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019 Richard Armstrong</copyright><lastBuildDate>Fri, 04 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://raarmstrong.github.io/img/avatar.jpg</url>
+      <title>Projects</title>
+      <link>https://raarmstrong.github.io/project/</link>
+    </image>
+    
+    <item>
+      <title>NAP7</title>
+      <link>https://raarmstrong.github.io/project/nap7/</link>
+      <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://raarmstrong.github.io/project/nap7/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mode of anaesthesia</title>
+      <link>https://raarmstrong.github.io/project/mode-of-anaesthesia/</link>
+      <pubDate>Thu, 03 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://raarmstrong.github.io/project/mode-of-anaesthesia/</guid>
+      <description>&lt;p&gt;Collaborative mixed-methods research with University of Bristol on mode of anaesthesia for emergency surgery.&lt;/p&gt;
+
+&lt;p&gt;Supported by the David Telling Charitable Trust and Vascular Anaesthesia Society of Great Britain and Ireland (VASGBI).&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Healthcare data science</title>
+      <link>https://raarmstrong.github.io/project/data-science/</link>
+      <pubDate>Wed, 02 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://raarmstrong.github.io/project/data-science/</guid>
+      <description>&lt;p&gt;Several projects ongoing with collaborators at University of Bristol. Our principal aim is to use routinely-collected patient data to drive improvements in patient care.&lt;/p&gt;
+
+&lt;p&gt;Supported by Bristol Hospitals Research Charity Research Fellowship.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
