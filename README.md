@@ -1,4 +1,4 @@
-# Holding page
+theme: minimal
 
 This website is currently under development
 
