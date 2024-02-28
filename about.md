@@ -13,3 +13,5 @@ I am interested in the application of machine learning and causal inference tech
 [ResearchGate](https://www.researchgate.net/profile/Richard-Armstrong-2)
 
 [ORCID](https://orcid.org/0000-0001-9479-0143)
+
+[University of Bristol profile](https://www.bristol.ac.uk/people/person/Richard-Armstrong-9d2d20a7-6fac-43cf-9ed6-5883f3ba4325/)
