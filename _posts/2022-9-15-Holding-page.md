@@ -3,4 +3,4 @@ layout: post
 title: Welcome
 ---
 
-This website is currently under (slow) development. In the meantime, please visit my [University of Bristol profile](https://research-information.bris.ac.uk/en/persons/richard-armstrong) for more information.
+Thank you for visiting my personal website. This website is currently under development. In the meantime, you can find more information on the [About](https://www.raarmstrong.com/about) page, at my [University of Bristol profile](https://research-information.bris.ac.uk/en/persons/richard-armstrong) or by following the links below to Github, LinkedIn and Twitter/X.
