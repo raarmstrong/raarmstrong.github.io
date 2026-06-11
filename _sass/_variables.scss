@@ -4,24 +4,30 @@
 //
 
 // Colors
-$blue: #4183C4;
+$teal: #0f766e;
+$teal-light: #0d9488;
+$blue: #0f766e; // Using teal for branding links
 
 // Grays
-$black: #000;
-$darkerGray: #222;
-$darkGray: #333;
-$gray: #666;
-$lightGray: #eee;
-$white: #fff;
+$black: #0f172a;      // Slate-900
+$darkerGray: #1e293b;  // Slate-800
+$darkGray: #334155;    // Slate-700
+$gray: #64748b;        // Slate-500
+$lightGray: #e2e8f0;   // Slate-200
+$white: #ffffff;
+$bg-light: #f8fafc;    // Slate-50
 
 // Font stacks
-$helvetica: Helvetica, Arial, sans-serif;
-$helveticaNeue: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-headings: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+$font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+$helvetica: $font-body;
+$helveticaNeue: $font-headings;
 $georgia: Georgia, serif;
 
 // Mobile breakpoints
 @mixin mobile {
-  @media screen and (max-width: 640px) {
+  @media screen and (max-width: 768px) {
     @content;
   }
 }
