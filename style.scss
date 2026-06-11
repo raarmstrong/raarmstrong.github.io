@@ -799,3 +799,29 @@ nav {
 footer {
   padding: 32px 0;
 }
+
+/* Monogram Badge */
+.site-monogram {
+  float: left;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, $teal 0%, $teal-light 100%);
+  color: $white !important;
+  font-family: $font-headings;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  margin-right: 12px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(15, 118, 110, 0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+  
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 14px rgba(15, 118, 110, 0.3);
+  }
+}
