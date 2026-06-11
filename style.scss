@@ -329,29 +329,63 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .masthead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   border-bottom: none;
   padding: 16px 0;
+  
+  @include mobile {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+.site-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  float: none;
+  
+  @include mobile {
+    flex-direction: column;
+    gap: 8px;
+  }
 }
 
 .site-avatar {
-  width: 44px;
-  height: 44px;
-  margin-right: 12px;
+  float: none;
+  width: 60px; /* Increased from 44px to 60px for better visibility */
+  height: 60px;
+  margin-right: 0;
+  
   img {
-    border-radius: 50%; /* Rounded circle avatar */
+    border-radius: 50%;
     border: 2px solid $lightGray;
     transition: border-color 0.3s;
+    width: 60px;
+    height: 60px;
+    display: block;
     &:hover {
       border-color: $teal;
     }
   }
 }
 
+.site-info {
+  float: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .site-name {
   font-family: $font-headings;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 22px;
   color: $black;
+  margin: 0;
+  line-height: 1.2;
 }
 
 .site-description {
@@ -359,15 +393,27 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 nav {
-  margin-top: 10px;
+  float: none;
+  margin-top: 0;
   font-size: 15px;
   font-weight: 500;
+  display: flex;
+  align-items: center;
+  
+  @include mobile {
+    margin-top: 8px;
+  }
+
   a {
     color: $darkGray;
     margin-left: 24px;
     transition: color 0.2s;
     &:hover {
       color: $teal;
+    }
+    
+    @include mobile {
+      margin: 0 10px;
     }
   }
 }
