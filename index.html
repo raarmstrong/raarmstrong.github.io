@@ -6,11 +6,10 @@ title: Home
 <!-- Hero Section -->
 <section class="hero-section">
   <div class="hero-content-full">
-    <div class="badge-accent">Clinician Data Scientist</div>
     <h1 class="hero-name">{{ site.name }}</h1>
     <p class="hero-subtitle">{{ site.description }}</p>
     <p class="hero-bio">
-      I am an anaesthetist in the Severn Deanery and a GW4-CAT PhD Programme for Health Professionals PhD Fellow studying the use of multiomics in predicting and understanding immune-mediated complications of anaesthesia and surgery. My research interests focus on applying machine learning and causal inference to improve patient outcomes after major surgery.
+      I am a doctor, health data scientist and applied AI engineer. I am completing a PhD at the MRC Integrative Epidemiology Unit, University of Bristol, after more than ten years of NHS clinical practice in anaesthesia. My research combines statistical genomics, multiomic machine learning and causal inference to understand and predict complications after major surgery. Alongside it, I design, evaluate and deploy production LLM agents and ML pipelines, with an emphasis on reliability, auditability and open science.
     </p>
     <div class="social-links-wrapper">
       <a href="https://github.com/{{ site.footer-links.github }}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
@@ -42,9 +41,9 @@ title: Home
       <div class="card-icon-wrapper">
         <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2.5 3.19-2.5 5.5h20c0-2.31-1-4.24-2.5-5.5"></path><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z"></path><path d="M12 6a3.5 3.5 0 0 0-3.5 3.5c0 3 3.5 6.5 3.5 6.5s3.5-3.5 3.5-6.5A3.5 3.5 0 0 0 12 6z"></path></svg>
       </div>
-      <h3 class="card-title">Multiomics & Biobank Data</h3>
+      <h3 class="card-title">Statistical Genomics &amp; Causal Inference</h3>
       <p class="card-text">
-        Analyzing large-scale genetic and multiomic datasets to identify molecular pathways and predict surgical complications.
+        GWAS, polygenic risk scores, genetic correlation and Mendelian randomisation to uncover the biology of postoperative complications and test which drivers are causal.
       </p>
     </div>
 
@@ -52,9 +51,9 @@ title: Home
       <div class="card-icon-wrapper">
         <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
       </div>
-      <h3 class="card-title">Clinical Machine Learning</h3>
+      <h3 class="card-title">Multiomic Machine Learning</h3>
       <p class="card-text">
-        Developing robust adaptive predictive pipelines to identify patients at risk of postoperative complications.
+        Reproducible prediction pipelines integrating proteomic, metabolomic and clinical data in UK Biobank, judged by whether added biology improves real decisions.
       </p>
     </div>
 
@@ -62,9 +61,9 @@ title: Home
       <div class="card-icon-wrapper">
         <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path></svg>
       </div>
-      <h3 class="card-title">Causal Inference</h3>
+      <h3 class="card-title">Applied AI &amp; Agent Engineering</h3>
       <p class="card-text">
-        Applying causal machine learning methods to discover targetable drivers of clinical outcomes.
+        Shipping production multi-agent LLM systems: tool calling, grounding in real data, evaluation benchmarks, guardrails and human-in-the-loop review.
       </p>
     </div>
 
@@ -78,6 +77,26 @@ title: Home
     <a href="https://scholar.google.com/citations?hl=en&user=1m4sTK4AAAAJ" class="section-link" target="_blank" rel="noopener noreferrer">All Publications (Google Scholar) →</a>
   </div>
   <div class="publications-list">
+
+    <div class="pub-card">
+      <div class="pub-badge-wrapper">
+        <span class="badge badge-journal">BMC Medical Genomics</span>
+        <span class="badge badge-year">2026</span>
+        <span class="badge badge-method">GWAS</span>
+        <span class="badge badge-method">Polygenic Risk Scores</span>
+      </div>
+      <h3 class="pub-title">Genetic risk factors for postoperative complications after major surgery and shared genetic aetiology with non-postoperative phenotypes</h3>
+      <p class="pub-authors"><strong>Armstrong RA</strong>, et al.</p>
+      <p class="pub-summary">
+        GWAS of five major postoperative complications in >140,000 UK Biobank surgical patients, identifying a risk locus for postoperative atrial fibrillation near <em>PITX2</em> and showing that polygenic risk for chronic disease predicts the matching postoperative complication.
+      </p>
+      <div class="pub-action-links">
+        <a href="https://doi.org/10.1186/s12920-026-02487-3" class="pub-link-btn" target="_blank" rel="noopener noreferrer">
+          <svg class="link-btn-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          Read Publication
+        </a>
+      </div>
+    </div>
 
     <div class="pub-card">
       <div class="pub-badge-wrapper">
@@ -101,7 +120,28 @@ title: Home
 
     <div class="pub-card">
       <div class="pub-badge-wrapper">
-        <span class="badge badge-journal">MedRxviv</span>
+        <span class="badge badge-journal">medRxiv</span>
+        <span class="badge badge-preprint">Preprint</span>
+        <span class="badge badge-year">2026</span>
+        <span class="badge badge-method">Mendelian Randomisation</span>
+        <span class="badge badge-method">Inflammation</span>
+      </div>
+      <h3 class="pub-title">Inflammation and postoperative complications after major surgery: a bi-directional two-sample Mendelian randomization study</h3>
+      <p class="pub-authors"><strong>Armstrong RA</strong>, et al.</p>
+      <p class="pub-summary">
+        Bi-directional two-sample Mendelian randomisation study testing whether inflammation causally influences postoperative complications.
+      </p>
+      <div class="pub-action-links">
+        <a href="https://doi.org/10.64898/2026.03.26.26349385" class="pub-link-btn" target="_blank" rel="noopener noreferrer">
+          <svg class="link-btn-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          Read Preprint
+        </a>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <div class="pub-badge-wrapper">
+        <span class="badge badge-journal">medRxiv</span>
         <span class="badge badge-preprint">Preprint</span>
         <span class="badge badge-year">2026</span>
         <span class="badge badge-method">Machine Learning</span>
@@ -110,12 +150,32 @@ title: Home
       <h3 class="pub-title">Using multiomic data to predict postoperative complications after major surgery in the UK Biobank cohort</h3>
       <p class="pub-authors"><strong>Armstrong RA</strong>, et al.</p>
       <p class="pub-summary">
-        Developed adaptive machine learning predictive pipelines utilizing clinical and multiomic (metabolomics, proteomics) features to forecast postoperative complication risk.
+        Developed adaptive machine learning predictive pipelines using clinical and multiomic (metabolomics, proteomics) features to forecast postoperative complication risk.
       </p>
       <div class="pub-action-links">
         <a href="https://doi.org/10.64898/2026.03.10.26348039" class="pub-link-btn" target="_blank" rel="noopener noreferrer">
           <svg class="link-btn-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
           Read Preprint
+        </a>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <div class="pub-badge-wrapper">
+        <span class="badge badge-journal">PLOS Digital Health</span>
+        <span class="badge badge-year">2026</span>
+        <span class="badge badge-method">AI-assisted Analysis</span>
+        <span class="badge badge-method">NLP</span>
+      </div>
+      <h3 class="pub-title">Comparing human vs. machine-assisted analysis to develop a new approach for Big Qualitative Data Analysis</h3>
+      <p class="pub-authors">Martin S, Beecham E, Kursumovic E, <strong>Armstrong RA</strong>, et al.</p>
+      <p class="pub-summary">
+        Compared machine-assisted and human-only analysis of 5,196 free-text responses from a national perioperative cardiac arrest survey: the hybrid approach cut analysis time substantially, but human expertise remained essential for nuance.
+      </p>
+      <div class="pub-action-links">
+        <a href="https://doi.org/10.1371/journal.pdig.0000576" class="pub-link-btn" target="_blank" rel="noopener noreferrer">
+          <svg class="link-btn-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          Read Publication
         </a>
       </div>
     </div>
@@ -130,7 +190,7 @@ title: Home
       <h3 class="pub-title">Outcomes from intensive care in patients with COVID-19: a systematic review and meta-analysis</h3>
       <p class="pub-authors"><strong>Armstrong RA</strong>, et al.</p>
       <p class="pub-summary">
-        A landmark meta-analysis showing COVID-19 ICU mortality over time. Over 500 citations to date and informed national and international clinical guidelines.
+        A landmark meta-analysis showing COVID-19 ICU mortality over time. Over 700 citations to date and informed national and international clinical guidelines.
       </p>
       <div class="pub-action-links">
         <a href="https://doi.org/10.1111/anae.15201" class="pub-link-btn" target="_blank" rel="noopener noreferrer">
