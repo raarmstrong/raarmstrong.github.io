@@ -9,6 +9,40 @@
 @import "variables";
 // Syntax highlighting @import is at the bottom of this file
 
+/**********/
+/* THEME  */
+/**********/
+
+// Colours are CSS custom properties so dark mode is a single override block.
+:root {
+  --bg: #ffffff;
+  --text: #1f2933;
+  --text-strong: #0b0f14;
+  --muted: #6b7684;
+  --border: #e5e8ec;
+  --accent: #0f766e;
+  --accent-hover: #0b5c56;
+  --selection: #d6ece9;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117;
+    --text: #c3cad3;
+    --text-strong: #f0f3f6;
+    --muted: #8793a0;
+    --border: #232a33;
+    --accent: #2dd4bf;
+    --accent-hover: #5eead4;
+    --selection: #123c3a;
+  }
+
+  // The logo's dark teal and slate disappear on a dark background.
+  .site-avatar img { filter: brightness(1.7) saturate(1.2); }
+}
+
+$mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
 /**************/
 /* BASE RULES */
 /**************/
@@ -18,856 +52,408 @@ html {
 }
 
 body {
-  background: $bg-light;
-  font: 16px/1.6 $font-body;
-  color: $darkGray;
+  background: var(--bg);
+  color: var(--text);
+  font: 400 16px/1.65 $font-body;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 .container {
   margin: 0 auto;
-  max-width: 960px;
+  max-width: 720px;
   padding: 0 24px;
   width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: $helveticaNeue;
-  color: $darkerGray;
-  font-weight: bold;
-
-  line-height: 1.7;
-  margin: 1em 0 15px;
+  font-family: $font-body;
+  color: var(--text-strong);
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 1.5em 0 0.5em;
   padding: 0;
-
-  @include mobile {
-    line-height: 1.4;
-  }
 }
 
-h1 {
-  font-size: 30px;
-  a {
-    color: inherit;
-  }
-}
+h1 { font-size: 28px; }
+h2 { font-size: 20px; }
+h3 { font-size: 17px; }
+h4 { font-size: 15px; color: var(--muted); }
 
-h2 {
-  font-size: 24px;
-}
-
-h3 {
-  font-size: 20px;
-}
-
-h4 {
-  font-size: 18px;
-  color: $gray;
-}
-
-p {
-  margin: 15px 0;
-}
+p { margin: 14px 0; }
 
 a {
-  color: $blue;
+  color: var(--accent);
   text-decoration: none;
-	cursor: pointer;
-  &:hover, &:active {
-    color: $blue;
-  }
+  cursor: pointer;
+  &:hover, &:active { color: var(--accent-hover); }
 }
 
 ul, ol {
-  margin: 15px 0;
-  padding-left: 30px;
+  margin: 14px 0;
+  padding-left: 24px;
 }
+ul { list-style-type: disc; }
+ol { list-style-type: decimal; }
+ol ul, ul ol, ul ul, ol ol { margin: 0; }
+ul ul, ol ul { list-style-type: circle; }
 
-ul {
-  list-style-type: disc;
-}
+em, i { font-style: italic; }
+strong, b { font-weight: 600; color: var(--text-strong); }
 
-ol {
-  list-style-type: decimal;
-}
-
-ol ul, ul ol, ul ul, ol ol {
-  margin: 0;
-}
-
-ul ul, ol ul {
-  list-style-type: circle;
-}
-
-em, i {
-  font-style: italic;
-}
-
-strong, b {
-  font-weight: bold;
-}
-
-img {
-  max-width: 100%;
-}
+img { max-width: 100%; }
 
 // Fixes images in popup boxes from Google Translate
-.gmnoprint img {
-  max-width: none;
+.gmnoprint img { max-width: none; }
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 32px 0;
 }
 
 .date {
   font-style: italic;
-  color: $gray;
+  color: var(--muted);
 }
 
-// Specify the color of the selection
-::-moz-selection {
-  color: $black;
-  background: $lightGray;
-}
-::selection {
-  color: $black;
-  background: $lightGray;
-}
+::-moz-selection { background: var(--selection); }
+::selection { background: var(--selection); }
 
 // Nicolas Gallagher's micro clearfix hack
 // http://nicolasgallagher.com/micro-clearfix-hack/
 .clearfix:before,
 .clearfix:after {
-    content: " ";
-    display: table;
+  content: " ";
+  display: table;
 }
+.clearfix:after { clear: both; }
 
-.clearfix:after {
-    clear: both;
-}
-
-/*********************/
-/* LAYOUT / SECTIONS */
-/*********************/
-
-//
-// .masthead
-//
+/**********/
+/* HEADER */
+/**********/
 
 .wrapper-masthead {
-  margin-bottom: 50px;
-}
-
-.masthead {
-  padding: 20px 0;
-  border-bottom: 1px solid $lightGray;
-
-  @include mobile {
-    text-align: center;
-  }
-}
-
-.site-avatar {
-  float: left;
-  width: 70px;
-  height: 70px;
-  margin-right: 15px;
-
-  @include mobile {
-    float: none;
-    display: block;
-    margin: 0 auto;
-  }
-
-  img {
-    border-radius: 5px;
-  }
-}
-
-.site-info {
-  float: left;
-
-  @include mobile {
-    float: none;
-    display: block;
-    margin: 0 auto;
-  }
-}
-
-.site-name {
-  margin: 0;
-  color: $darkGray;
-  cursor: pointer;
-  font-family: $helveticaNeue;
-  font-weight: 300;
-  font-size: 28px;
-  letter-spacing: 1px;
-}
-
-.site-description {
-  margin: -5px 0 0 0;
-  color: $gray;
-  font-size: 16px;
-
-  @include mobile {
-    margin: 3px 0;
-  }
-}
-
-nav {
-  float: right;
-  margin-top: 23px; // @TODO: Vertically middle align
-  font-family: $helveticaNeue;
-  font-size: 18px;
-
-  @include mobile {
-    float: none;
-    margin-top: 9px;
-    display: block;
-    font-size: 16px;
-  }
-
-  a {
-    margin-left: 20px;
-    color: $darkGray;
-    text-align: right;
-    font-weight: 300;
-    letter-spacing: 1px;
-
-    @include mobile {
-      margin: 0 10px;
-      color: $blue;
-    }
-  }
-}
-
-//
-// .main
-//
-
-.posts > .post {
-  padding-bottom: 2em;
-  border-bottom: 1px solid $lightGray;
-}
-
-.posts > .post:last-child {
-  padding-bottom: 1em;
-  border-bottom: none;
-}
-
-.post {
-  blockquote {
-    margin: 1.8em .8em;
-    border-left: 2px solid $gray;
-    padding: 0.1em 1em;
-    color: $gray;
-    font-size: 22px;
-    font-style: italic;
-  }
-
-  .comments {
-    margin-top: 10px;
-  }
-
-  .read-more {
-    text-transform: uppercase;
-    font-size: 15px;
-  }
-}
-
-.wrapper-footer {
-  margin-top: 50px;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  background-color: $lightGray;
-}
-
-footer {
-  padding: 20px 0;
-  text-align: center;
-}
-
-// Settled on moving the import of syntax highlighting to the bottom of the CSS
-// ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
-@import "highlights";
-@import "svg-icons";
-
-// ==========================================
-// CLINICAL-TECH REDESIGN STYLES
-// ==========================================
-
-/* Global Layout & Utility */
-body {
-  overflow-x: hidden;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: $font-headings;
-  color: $black;
-}
-
-.badge-accent {
-  display: inline-block;
-  background-color: rgba(15, 118, 110, 0.1);
-  color: $teal;
-  padding: 6px 12px;
-  border-radius: 9999px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 12px;
-}
-
-/* Header & Masthead Redesign */
-.wrapper-masthead {
-  background-color: $white;
-  border-bottom: 1px solid $lightGray;
-  margin-bottom: 40px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 56px;
 }
 
 .masthead {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: none;
-  padding: 16px 0;
-  
+  padding: 18px 0;
+
   @include mobile {
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
   }
 }
 
 .site-brand {
   display: flex;
   align-items: center;
-  gap: 16px;
-  float: none;
-  
-  @include mobile {
-    flex-direction: column;
-    gap: 8px;
-  }
+  gap: 10px;
 }
 
 .site-avatar {
-  float: none;
-  width: 60px; /* Increased from 44px to 60px for better visibility */
-  height: 60px;
-  margin-right: 0;
-  
+  display: block;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+
   img {
-    border-radius: 50%;
-    border: 2px solid $lightGray;
-    transition: border-color 0.3s;
-    width: 60px;
-    height: 60px;
     display: block;
-    &:hover {
-      border-color: $teal;
-    }
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
   }
 }
 
-.site-info {
-  float: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+.site-info { display: flex; align-items: center; }
 
 .site-name {
-  font-family: $font-headings;
-  font-weight: 700;
-  font-size: 22px;
-  color: $black;
   margin: 0;
-  line-height: 1.2;
-}
-
-.site-description {
-  display: none; /* Keep header minimal, description is in hero */
-}
-
-nav {
-  float: none;
-  margin-top: 0;
-  font-size: 15px;
+  font-family: $mono;
+  font-size: 14px;
   font-weight: 500;
-  display: flex;
-  align-items: center;
-  
-  @include mobile {
-    margin-top: 8px;
-  }
+  line-height: 1;
+  letter-spacing: -0.01em;
 
   a {
-    color: $darkGray;
-    margin-left: 24px;
-    transition: color 0.2s;
-    &:hover {
-      color: $teal;
-    }
-    
-    @include mobile {
-      margin: 0 10px;
-    }
+    color: var(--accent);
+    &:hover { color: var(--accent-hover); }
   }
 }
 
-/* Hero Section */
-.hero-section {
-  padding: 24px 0 48px;
-  border-bottom: 1px solid $lightGray;
-  margin-bottom: 48px;
-}
+.site-description { display: none; }
 
-.hero-grid {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 40px;
-  align-items: center;
-  
-  @include mobile {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 24px;
-  }
-}
-
-.hero-avatar-wrapper {
+nav {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-family: $mono;
+  font-size: 13px;
+
+  a {
+    color: var(--muted);
+    transition: color 0.15s;
+    &:hover { color: var(--text-strong); }
+  }
 }
 
-.hero-avatar {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid $white;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  
-  &:hover {
-    transform: scale(1.02);
-  }
+/********/
+/* HERO */
+/********/
+
+#main { padding-bottom: 80px; }
+
+.hero-section {
+  padding: 0;
+  margin-bottom: 64px;
 }
 
 .hero-name {
-  font-size: 38px;
-  font-weight: 800;
-  line-height: 1.1;
-  color: $black;
-  margin: 0 0 8px 0;
-  letter-spacing: -0.025em;
-  
-  @include mobile {
-    font-size: 32px;
-  }
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--text-strong);
+  margin: 0 0 8px;
+
+  @include mobile { font-size: 30px; }
+
+  &::before { content: "> "; color: var(--muted); font-weight: 400; }
 }
 
 .hero-subtitle {
-  font-size: 20px;
-  font-weight: 500;
-  color: $gray;
-  margin: 0 0 16px 0;
-  line-height: 1.3;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--muted);
+  margin: 0 0 24px;
 }
 
 .hero-bio {
-  font-size: 16px;
-  line-height: 1.6;
-  color: $darkGray;
-  margin-bottom: 24px;
+  color: var(--text);
+  margin: 0 0 28px;
 }
 
 .social-links-wrapper {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  
-  @include mobile {
-    justify-content: center;
-  }
+  gap: 8px 20px;
 }
 
-/* Button Component */
+// Links, not buttons.
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 500;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  cursor: pointer;
-  
-  .btn-icon {
-    flex-shrink: 0;
-    transition: transform 0.2s;
+  gap: 6px;
+  font-family: $mono;
+  font-size: 13px;
+  color: var(--text) !important;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1px;
+  transition: border-color 0.15s, color 0.15s;
+
+  &:hover {
+    color: var(--accent) !important;
+    border-color: var(--accent);
   }
-  
+
+  .btn-icon { width: 14px; height: 14px; flex-shrink: 0; }
+
   .btn-text-icon {
-    font-weight: 800;
-    font-size: 12px;
-    background: rgba(0,0,0,0.08);
-    padding: 2px 4px;
-    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--muted);
   }
 }
 
-.btn-primary {
-  background-color: $teal;
-  color: $white !important;
-  border: 1px solid $teal;
-  
-  &:hover {
-    background-color: $teal-light;
-    border-color: $teal-light;
-    box-shadow: 0 4px 12px rgba(15, 118, 110, 0.15);
-    .btn-icon {
-      transform: translateY(-1px);
-    }
-  }
-}
+/************/
+/* SECTIONS */
+/************/
 
-.btn-secondary {
-  background-color: $white;
-  color: $darkGray !important;
-  border: 1px solid $lightGray;
-  
-  &:hover {
-    background-color: $bg-light;
-    border-color: $gray;
-    color: $black !important;
-  }
-}
-
-/* Section Styling */
-.section {
-  margin-bottom: 56px;
-}
+.section { margin-bottom: 56px; }
 
 .section-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
-  border-bottom: 2px solid $lightGray;
-  padding-bottom: 12px;
-  margin-bottom: 28px;
-  
-  .section-title {
-    border-bottom: none;
-    margin: 0;
-    padding: 0;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 8px;
+
+  @include mobile {
+    flex-direction: column;
+    gap: 0;
   }
 }
 
 .section-title {
-  font-size: 24px;
-  font-weight: 700;
-  color: $black;
-  border-bottom: 2px solid $lightGray;
-  padding-bottom: 12px;
-  margin-bottom: 28px;
+  font-family: $mono;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--accent);
+  margin: 0 0 12px;
+  padding: 0;
+
+  &::before { content: "> "; color: var(--muted); }
 }
 
 .section-link {
-  font-size: 14px;
-  font-weight: 600;
-  color: $teal;
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
+  font-family: $mono;
+  font-size: 12px;
+  color: var(--muted);
+  &:hover { color: var(--accent); }
 }
 
-/* Grid Layouts */
+/* Research pillars: plain ruled list */
 .grid {
-  display: grid;
-  gap: 24px;
+  display: flex;
+  flex-direction: column;
 }
 
-.grid-3 {
-  grid-template-columns: repeat(3, 1fr);
-  
-  @include mobile {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Cards */
 .card {
-  background-color: $white;
-  border: 1px solid $lightGray;
-  border-radius: 12px;
-  padding: 24px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.08);
-    border-color: rgba(15, 118, 110, 0.2);
-  }
+  padding: 18px 0;
+  border-top: 1px solid var(--border);
+  &:last-child { border-bottom: 1px solid var(--border); }
 }
 
-.card-icon-wrapper {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 10px;
-  background-color: rgba(15, 118, 110, 0.08);
-  color: $teal;
-  margin-bottom: 16px;
-}
+.card-icon-wrapper { display: none; }
 
 .card-title {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 600;
-  margin: 0 0 10px 0;
-  color: $black;
+  margin: 0 0 4px;
+  color: var(--text-strong);
 }
 
 .card-text {
-  font-size: 14px;
-  line-height: 1.5;
-  color: $darkGray;
+  font-size: 15px;
+  color: var(--muted);
   margin: 0;
 }
 
-/* Publications */
+/* Publications: ruled list */
 .publications-list {
   display: flex;
   flex-direction: column;
-  gap: 20px;
 }
 
 .pub-card {
-  background-color: $white;
-  border: 1px solid $lightGray;
-  border-radius: 12px;
-  padding: 24px;
-  position: relative;
-  transition: all 0.2s ease;
-  
-  &:hover {
-    border-color: rgba(15, 118, 110, 0.3);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-  }
-  
-  &.featured {
-    border-left: 4px solid $teal;
-  }
+  padding: 24px 0;
+  border-top: 1px solid var(--border);
+  &:last-child { border-bottom: 1px solid var(--border); }
 }
 
 .pub-badge-wrapper {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 12px;
+  gap: 2px 14px;
+  margin-bottom: 8px;
 }
 
 .badge {
+  font-family: $mono;
   font-size: 11px;
-  font-weight: 600;
-  padding: 3px 8px;
-  border-radius: 4px;
-  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--muted);
+  background: none;
+  padding: 0;
+  text-transform: none;
 }
 
-.badge-journal {
-  background-color: #f1f5f9;
-  color: #334155;
-}
-
-.badge-preprint {
-  background-color: #fef3c7;
-  color: #d97706;
-}
-
-.badge-year {
-  background-color: #f1f5f9;
-  color: #64748b;
-}
-
-.badge-method {
-  background-color: #ecfdf5;
-  color: #059669;
-}
-
-.badge-award {
-  background-color: #e0f2fe;
-  color: #0284c7;
-}
+.badge-journal { color: var(--accent); }
+.badge-year { color: var(--text); }
+.badge-method::before { content: "#"; opacity: 0.6; }
+.badge-preprint, .badge-award { color: var(--text-strong); }
 
 .pub-title {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 600;
   line-height: 1.4;
-  margin: 0 0 6px 0;
-  color: $black;
+  margin: 0 0 6px;
+  color: var(--text-strong);
 }
 
 .pub-authors {
   font-size: 14px;
-  color: $gray;
-  margin: 0 0 10px 0;
+  color: var(--muted);
+  margin: 0 0 8px;
+  strong { color: var(--text-strong); }
 }
 
 .pub-summary {
-  font-size: 14px;
-  line-height: 1.5;
-  color: $darkGray;
-  margin: 0 0 16px 0;
+  font-size: 15px;
+  color: var(--text);
+  margin: 0 0 12px;
 }
 
-.pub-action-links {
-  display: flex;
-  gap: 16px;
-}
+.pub-action-links { display: flex; gap: 16px; }
 
 .pub-link-btn {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 13px;
-  font-weight: 600;
-  color: $teal;
-  text-decoration: none;
-  
-  &:hover {
-    color: $teal-light;
-    text-decoration: underline;
-  }
-}
-
-/* Blog / Writings Grid */
-.blog-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-  
-  @include mobile {
-    grid-template-columns: 1fr;
-  }
-}
-
-.blog-card {
-  background-color: $white;
-  border: 1px solid $lightGray;
-  border-radius: 12px;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  
-  &:hover {
-    border-color: rgba(15, 118, 110, 0.2);
-  }
-}
-
-.blog-date {
+  font-family: $mono;
   font-size: 12px;
-  color: $gray;
-  margin-bottom: 8px;
+  color: var(--accent);
+
+  .link-btn-icon { width: 13px; height: 13px; }
+  &:hover { color: var(--accent-hover); text-decoration: underline; }
 }
 
-.blog-title {
-  font-size: 18px;
-  font-weight: 600;
-  margin: 0 0 10px 0;
-  line-height: 1.3;
-  a {
-    color: $black;
-    &:hover {
-      color: $teal;
-    }
+/********************/
+/* PAGES AND POSTS  */
+/********************/
+
+.page, .post {
+  h1 { margin-top: 0; }
+}
+
+// Same "> heading" treatment as the home page section titles.
+.page {
+  h1, h2 {
+    font-family: $mono;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--accent);
+
+    &::before { content: "> "; color: var(--muted); }
   }
-}
-
-.blog-excerpt {
-  font-size: 14px;
-  line-height: 1.5;
-  color: $darkGray;
-  margin-bottom: 16px;
-  flex-grow: 1;
-}
-
-.blog-more-link {
-  font-size: 13px;
-  font-weight: 600;
-  color: $teal;
-  text-decoration: none;
-  &:hover {
-    color: $teal-light;
+  h1 { font-size: 26px; margin-bottom: 20px; }
+  h2 {
+    font-size: 20px;
+    margin: 48px 0 0;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
   }
+  h2 + ul { margin-top: 18px; }
 }
 
-/* Post view styling overrides */
 .post {
-  background-color: $white;
-  border: 1px solid $lightGray;
-  border-radius: 16px;
-  padding: 40px;
-  margin-top: 24px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-  
-  @include mobile {
-    padding: 24px;
+  blockquote {
+    margin: 1.5em 0;
+    border-left: 2px solid var(--border);
+    padding: 0.1em 1em;
+    color: var(--muted);
   }
-  
-  h1 {
-    font-size: 32px;
-    font-weight: 800;
-    margin-top: 0;
-    margin-bottom: 24px;
-    line-height: 1.2;
-    color: $black;
-  }
+
+  .comments { margin-top: 10px; }
+  .read-more { font-size: 14px; }
 }
 
-/* Footer redesign */
-.wrapper-footer {
-  background-color: $white;
-  border-top: 1px solid $lightGray;
-  border-bottom: none;
-  margin-top: 80px;
+.posts > .post {
+  padding-bottom: 2em;
+  border-bottom: 1px solid var(--border);
+}
+.posts > .post:last-child { border-bottom: none; }
+
+code, pre {
+  font-family: $mono;
+  font-size: 0.9em;
 }
 
-footer {
-  padding: 32px 0;
-}
-
-/* Monogram Badge */
-.site-monogram {
-  float: left;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, $teal 0%, $teal-light 100%);
-  color: $white !important;
-  font-family: $font-headings;
-  font-weight: 800;
-  font-size: 13px;
-  letter-spacing: 0.5px;
-  margin-right: 12px;
-  text-decoration: none;
-  box-shadow: 0 4px 10px rgba(15, 118, 110, 0.2);
-  transition: transform 0.2s, box-shadow 0.2s;
-  
-  &:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 14px rgba(15, 118, 110, 0.3);
-  }
-}
+@import "highlights";
